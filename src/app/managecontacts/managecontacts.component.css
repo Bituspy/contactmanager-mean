@@ -1,0 +1,53 @@
+.cbtns{
+    min-width: 16px;
+    min-height: 16px;
+     text-align: center;
+     background: none;
+}
+
+
+.cbicon{
+     transition: color 0.5s,border-color 0.5s;
+}
+
+.cbicon:hover{
+       color:rgb(49, 199, 69);
+    border-color: rgb(49, 199, 69);
+}
+
+.cbicond{
+     transition: color 0.5s,border-color 0.5s;
+}
+
+
+.cbicond:hover{
+       color:rgb(199, 66, 49);
+    border-color: rgb(199, 66, 49);
+}
+
+
+.bicon{
+    color:rgb(116, 116, 116);
+    border: solid 1px;
+    border-color: rgb(78, 78, 78);
+    border-radius: 10px;
+    transition: color 1s,border-color 1s;
+}
+
+.bicon:hover{
+    color:rgb(49, 199, 69);
+    border-color: rgb(49, 199, 69);
+}
+
+.bicond{
+    color:rgb(116, 116, 116);
+    border: solid 1px;
+    border-color: rgb(78, 78, 78);
+    border-radius: 10px;
+    transition: color 1s,border-color 1s;
+}
+
+.bicond:hover{
+    color: rgb(199, 66, 49);
+    border-color:  rgb(199, 66, 49);
+}

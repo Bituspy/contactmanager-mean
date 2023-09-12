@@ -1,0 +1,156 @@
+<div class="main-content">
+
+     <mat-form-field style="width: 100%;">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search by First Name 🔎">
+                </mat-form-field>
+  <div class="container-fluid">
+
+
+                <!-- <form class="navbar-form">
+                <div class="input-group no-border">
+                    <input type="text" value="" class="form-control" placeholder="Search...">
+                    <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                    </button>
+                </div>
+            </form> -->
+
+      <div class="row" *ngFor="let c of contacts;" style="display: inline-table;">
+          <div class="col-lg-3 col-md-6 col-sm-6" style="min-height : 450px;">
+              <div class="card card-stats" style="width: 300px; margin-left: 10px; min-height : 390px;">
+                  <div *ngIf="c.typeContact == 'Friend'" class="card-header card-header-primary card-header-icon">
+                    
+                      <div class="card-icon" *ngIf="c.typeContact == 'Friend'" >
+                          <i class="material-icons">person</i>
+                      </div>
+                       <div class="card-icon" *ngIf="c.typeContact == 'Work'">
+                          <i class="material-icons">work</i>
+                      </div>
+                       <div class="card-icon" *ngIf="c.typeContact == 'Family'">
+                          <i class="material-icons">people</i>
+                      </div>
+                      <p class="card-category">{{c.name.firstName}} {{c.name.lastName}}</p>
+                      <p class="card-category" style="display:inline-block; margin-right:40px; width: 100%;">
+                        <button matTooltip="Add Address" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="openAddAddress(c._id)">
+                            <i  class="material-icons cbicon">list_alt</i>
+                          </button>
+                          <button matTooltip="Edit Contact" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="openEdit(c._id)">
+                            <i  class="material-icons cbicon">edit</i>
+                          </button>
+                           <button matTooltip="Delete Contact" [matTooltipPosition]="'above'" (click)="deleteContact(c._id)" mat-button mat-button class="cbtns">
+                            <i  class="material-icons cbicond">delete</i>
+                           </button>
+                      </p>
+
+                  </div>
+                     <div *ngIf="c.typeContact == 'Work'" class="card-header card-header-warning card-header-icon">
+                         <div class="card-icon" *ngIf="c.typeContact == 'Friend'" >
+                          <i class="material-icons">person</i>
+                      </div>
+                       <div class="card-icon" *ngIf="c.typeContact == 'Work'">
+                          <i class="material-icons">work</i>
+                      </div>
+                       <div class="card-icon" *ngIf="c.typeContact == 'Family'">
+                          <i class="material-icons">people</i>
+                      </div>
+                      <p class="card-category">{{c.name.firstName}} {{c.name.lastName}}</p>
+                      <p class="card-category" style="display:inline-block; margin-right:40px; width: 100%;">
+                        <button matTooltip="Add Address" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="openAddAddress(c._id)">
+                            <i  class="material-icons cbicon">list_alt</i>
+                          </button>
+                          <button matTooltip="Edit Contact" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="openEdit(c._id)">
+                            <i  class="material-icons cbicon">edit</i>
+                          </button>
+                           <button matTooltip="Delete Contact" [matTooltipPosition]="'above'" (click)="deleteContact(c._id)" mat-button mat-button class="cbtns">
+                            <i  class="material-icons cbicond">delete</i>
+                           </button>
+                      </p>
+
+
+                  </div>
+          <div *ngIf="c.typeContact == 'Family'" class="card-header card-header-success card-header-icon">
+            <div class="card-icon" *ngIf="c.typeContact == 'Friend'" >
+                          <i class="material-icons">person</i>
+                      </div>
+                       <div class="card-icon" *ngIf="c.typeContact == 'Work'">
+                          <i class="material-icons">work</i>
+                      </div>
+                       <div class="card-icon" *ngIf="c.typeContact == 'Family'">
+                          <i class="material-icons">people</i>
+                      </div>
+                      <p class="card-category">{{c.name.firstName}} {{c.name.lastName}}</p>
+                     <p class="card-category" style="display:inline-block; margin-right:40px; width: 100%;">
+                        <button matTooltip="Add Address" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="openAddAddress(c._id)">
+                            <i  class="material-icons cbicon">list_alt</i>
+                          </button>
+                          <button matTooltip="Edit Contact" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="openEdit(c._id)">
+                            <i  class="material-icons cbicon">edit</i>
+                          </button>
+                           <button matTooltip="Delete Contact" [matTooltipPosition]="'above'" (click)="deleteContact(c._id)" mat-button mat-button class="cbtns">
+                            <i  class="material-icons cbicond">delete</i>
+                           </button>
+                      </p>
+
+
+                  </div>
+                  <div class="card-body">
+                  <table style="text-align: center; width: 100%;">
+                    <tr>
+                    <th>Name </th>
+                    <td>{{c.name.firstname}} {{c.name.lastname}}</td>
+                    </tr>
+                    <tr>
+                    <th>Phone</th>
+                    <td>{{c.phone}}</td>
+                    </tr>
+                    <tr>
+                    <th>Email</th>
+                    <td>{{c.email}}</td>
+                    </tr>
+                    <tr>
+                    <th>Contact Type</th>
+                    <td>{{c.typeContact}}</td>
+                    </tr>
+                    <tr *ngFor="let a of c.address;">
+<td colspan="2" >
+<mat-accordion style="width: 100%;" >
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Address : {{a.state}}
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <p>
+        {{a.street}}
+        {{a.city}}
+        {{a.state}}
+        {{a.zipCode}}<br>
+    <button matTooltip="Edit Address" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="openEditAddress(c._id,a._id)">
+    <i style="margin-bottom: 10px; font-size: 20  px;" class="material-icons bicon">edit</i>
+    </button>
+    <button matTooltip="Delete Address" [matTooltipPosition]="'above'" mat-button class="cbtns" (click)="deleteAddress(c._id,a._id)">
+    <i style="margin-bottom: 10px; font-size: 20  px;" class="material-icons bicond">delete</i>
+    </button>
+    
+
+
+  </mat-expansion-panel>
+  </mat-accordion>
+
+
+  </td>
+                    </tr>
+                  </table>
+                  <div class="card-footer">
+                      <div class="stats" style="margin-left:40px; margin-top:15px;">
+                          <i class="material-icons text-danger">access_time</i> Added at 19/05/2022
+                        
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+  </div>
+</div>

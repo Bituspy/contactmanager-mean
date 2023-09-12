@@ -1,0 +1,93 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md">
+              <div class="card" style="width:100%">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Ajouter un contact</h4>
+                      <p class="card-category">Entrer les donnes de nouveau contact</p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="addForm" (ngSubmit)="addContact(addForm.value);">
+                          <div class="row" formGroupName="name">
+                                 <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input formControlName="firstName" matInput placeholder="First Name" type="text">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                           <mat-form-field class="example-full-width">
+                                  <input matInput formControlName="lastName" placeholder="Last Name" type="text">
+                                </mat-form-field>
+                              </div>
+                                </div>
+                              <div class="row">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput formControlName="email" placeholder="Email address" type="email">
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput formControlName="phone" placeholder="Phone" type="text">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                           <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field appearance="fill">
+    <mat-label>Contact Type</mat-label>
+    <mat-select formControlName="typeContact">
+      <mat-option value="Work">
+        Work
+      </mat-option>
+       <mat-option value="Family">
+        Family
+      </mat-option>
+       <mat-option value="Friend">
+        Friend
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <h4>Address</h4>
+
+                              <div class="row" formGroupName="address">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput formControlName="street" placeholder="Street" type="text">
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput formControlName="city" placeholder="City" type="text">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                           <div class="row" formGroupName="address">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput formControlName="state" placeholder="State" type="text">
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput formControlName="zipCode" placeholder="Zip Code" type="text">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+
+                  
+
+                              </div>
+                          </div>
+                          
+                          <button [disabled]='!addForm.valid' mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter contact</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

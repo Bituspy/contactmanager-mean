@@ -1,0 +1,121 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row" style="width: 100%">
+          <div class="col-lg-3 col-md-6 col-sm-6" style="width: 100%">
+              <div class="card card-stats" style="width: 100%">
+              <div class="card-header card-header-info card-header-icon" > 
+                      <div class="card-icon">
+                          <i class="material-icons">contacts</i>
+                      </div>
+                      <p class="card-category">Total Contacts</p>
+                      <h3 class="card-title">{{nbContacts}}
+                          <small>Contacts</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons text-danger">person_add</i>
+                          <a routerLink="/addcontact">Add a new contact </a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+            <div class="col-lg-3 col-md-6 col-sm-6" style="width: 100%">
+              <div class="card card-stats" style="width: 100%">
+              <div class="card-header card-header-warning card-header-icon" > 
+                      <div class="card-icon">
+                          <i class="material-icons">work</i>
+                      </div>
+                      <p class="card-category">Total Colleagues</p>
+                      <h3 class="card-title">{{count['Work']}}
+                          <small>Colleagues</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons text-danger">person_add</i>
+                          <a routerLink="/addcontact">Add a new contact </a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+             <div class="col-lg-3 col-md-6 col-sm-6" style="width: 100%">
+              <div class="card card-stats" style="width: 100%">
+              <div class="card-header card-header-primary card-header-icon" > 
+                      <div class="card-icon">
+                          <i class="material-icons">person</i>
+                      </div>
+                      <p class="card-category">Total Friends</p>
+                      <h3 class="card-title">{{count['Friend']}}
+                          <small>Friends</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons text-danger">person_add</i>
+                          <a routerLink="/addcontact">Add a new contact </a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+             <div class="col-lg-3 col-md-6 col-sm-6" style="width: 100%">
+              <div class="card card-stats" style="width: 100%">
+              <div class="card-header card-header-success card-header-icon" > 
+                      <div class="card-icon">
+                          <i class="material-icons">people</i>
+                      </div>
+                      <p class="card-category">Family members</p>
+                      <h3 class="card-title">{{count['Family']}}
+                          <small>Family</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons text-danger">person_add</i>
+                          <a routerLink="/addcontact">Add a new contact </a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+        </div>
+
+      <div class="row" style="width: 100%" >
+              <div class="card" style="width: 100%">
+                  <div class="card-header card-header-info">
+                      <h4 class="card-title">Contacts</h4>
+                      <p class="card-category">A list of few contacts , <a routerLink="/managecontacts">see full list of contacts</a></p>
+                  </div>
+                  <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                          <thead class="text-info">
+                              <th style="width: 100px;"></th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Phone</th>
+    
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let c of contacts">
+                                
+                                <td *ngIf="c.typeContact == 'Friend'"><i style="margin-top: 10px; width:64px; color: #942BAE;" class="material-icons">person</i></td>
+                                 <td  *ngIf="c.typeContact == 'Work'"><i style="margin-top: 10px; width:64px; color : #FC9006; " class="material-icons">work</i></td>
+                                  <td *ngIf="c.typeContact == 'Family'" ><i style="margin-top: 10px; width:64px; color:#4BA64F;" class="material-icons">people</i></td>
+                                <td>{{c.name.firstname}}</td>
+                                  <td>{{c.name.lastname}}</td>
+                                <td>{{c.phone}}</td>
+                                
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+
+      </div>
+  </div>
+</div>
